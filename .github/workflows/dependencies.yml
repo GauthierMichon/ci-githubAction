@@ -1,4 +1,4 @@
-name: Dependencies
+name: Workflow-CI-day3
 run-name: ${{ github.actor }} is running Dependencies
 on: workflow_dispatch
 jobs:
