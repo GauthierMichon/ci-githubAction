@@ -12,3 +12,11 @@ jobs:
         with:
           node-version: 20
       - run: npm i
+
+  Unit-Testing:
+    container:
+      image: node:20-alpine3.19
+    runs-on: ubuntu-latest
+    needs: Dependencies
+    steps:
+      - run: npm test
