@@ -1,6 +1,6 @@
 name: Dependencies
 run-name: ${{ github.actor }} is running Dependencies
-on: [push]
+on: workflow_dispatch
 jobs:
   Test-Dependencies:
     container:
@@ -12,6 +12,11 @@ jobs:
         with:
           node-version: 20
       - run: npm i
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-dependencies
+          path: file.txt
 
   Unit-Testing:
     container:
@@ -19,4 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: Test-Dependencies
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-dependencies
       - run: npm test
