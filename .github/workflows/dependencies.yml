@@ -17,6 +17,6 @@ jobs:
     container:
       image: node:20-alpine3.19
     runs-on: ubuntu-latest
-    needs: Dependencies
+    needs: Test-Dependencies
     steps:
       - run: npm test
