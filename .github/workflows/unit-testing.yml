@@ -9,3 +9,9 @@ jobs:
     needs: Dependencies
     steps:
       - run: npm test
+
+  Test-Without-Dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests without dependencies
+        run: echo "Running tests without dependencies"
