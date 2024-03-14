@@ -1,9 +1,8 @@
-deps:
-  stage: dependencies
-  image: node:20-alpine3.19
-  script:
-    - npm install
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - node_modules/
+name: Dependencies
+run-name: ${{ github.actor }} is running Dependencies
+on: [push]
+jobs:
+  Test-Dependencies:
+    runs-on: node:20-alpine3.19
+    steps:
+      - npm install
