@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is running Dependencies
 on: [push]
 jobs:
   Test-Dependencies:
-    runs-on: node:20-alpine3.19
+    container:
+      image: node:20-alpine3.19
+    runs-on: ubuntu-latest
     steps:
       - run: npm install
